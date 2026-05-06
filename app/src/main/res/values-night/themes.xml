@@ -1,7 +1,10 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MediSafe" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<resources>
+    <style name="Theme.MediSafe" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/medi_blue_400</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/medi_blue_800</item>
+        <item name="colorSecondary">@color/medi_green_400</item>
+        <item name="android:colorBackground">#0D1117</item>
+        <item name="colorSurface">#161B22</item>
     </style>
 </resources>

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MediSafe</string>
+    <string name="onboarding_title_1">Welcome to MediSafe</string>
+    <string name="onboarding_desc_1">Easily manage your medicine inventory</string>
+    <string name="onboarding_title_2">Smart reminders</string>
+    <string name="onboarding_desc_2">Receive alerts when your stock is low</string>
+    <string name="onboarding_title_3">Clear statistics</string>
+    <string name="onboarding_desc_3">View your consumption</string>
+    <string name="onboarding_title_4">Cloud Synchronization</string>
+    <string name="onboarding_desc_4">Access your data on all your devices</string>
 </resources>
