@@ -1,9 +1,38 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MediSafe" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<resources>
+    <style name="Theme.MediSafe" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/medi_blue_600</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/medi_blue_50</item>
+        <item name="colorOnPrimaryContainer">@color/medi_blue_800</item>
+        <item name="colorSecondary">@color/medi_green_600</item>
+        <item name="colorSecondaryContainer">@color/medi_green_50</item>
+        <item name="colorTertiary">@color/medi_teal_600</item>
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="colorSurface">@color/white</item>
+
+        <!-- Coins arrondis globaux -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeSmall</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeMedium</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeLarge</item>
     </style>
 
-    <style name="Theme.MediSafe" parent="Base.Theme.MediSafe" />
+    <style name="ShapeSmall" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerRadius">8dp</item>
+    </style>
+    <style name="ShapeMedium" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerRadius">12dp</item>
+    </style>
+    <style name="ShapeLarge" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <!-- Thème sombre -->
+    <style name="Theme.MediSafe.Dark" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/medi_blue_400</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/medi_blue_800</item>
+        <item name="colorSecondary">@color/medi_green_400</item>
+        <item name="android:colorBackground">#0D1117</item>
+        <item name="colorSurface">#161B22</item>
+    </style>
 </resources>
