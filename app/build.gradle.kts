@@ -87,6 +87,7 @@ dependencies {
     // CircularProgressBar
     implementation(libs.circularprogressbar)
 
+
     // Tests (tu avais déjà)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
