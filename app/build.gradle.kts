@@ -1,9 +1,12 @@
+import org.gradle.kotlin.dsl.compileOnly
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.services)
 }
 
 android {
+
     namespace = "com.example.medisafe"
     compileSdk = 35   // ← correction : 36 n'est pas stable, on reste sur 35
 
@@ -32,8 +35,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -88,4 +91,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    compileOnly("org.projectlombok:lombok:1.18.32")
+    annotationProcessor("org.projectlombok:lombok:1.18.32")
 }

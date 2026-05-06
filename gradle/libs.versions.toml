@@ -19,6 +19,7 @@ glide = "4.16.0"
 lottie = "6.4.0"
 mpandroidchart = "3.1.0"
 circularprogressbar = "3.1.0"
+lombok = "1.18.32"
 
 [libraries]
 # Tests
@@ -70,6 +71,9 @@ mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", versio
 
 # CircularProgressBar
 circularprogressbar = { group = "com.mikhaellopez", name = "circularprogressbar", version.ref = "circularprogressbar" }
+
+# Lombok
+lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
