@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.medisafe.R;
+import com.example.medisafe.data.local.entity.MedicineEntity;
 import com.example.medisafe.databinding.FragmentHomeBinding;
 import com.example.medisafe.ui.add.AddMedicineFragment;
 import com.example.medisafe.ui.adapter.MedicineAdapter;
