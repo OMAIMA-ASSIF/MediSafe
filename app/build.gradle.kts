@@ -8,12 +8,12 @@ plugins {
 android {
 
     namespace = "com.example.medisafe"
-    compileSdk = 35   // ← correction : 36 n'est pas stable, on reste sur 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.medisafe"
         minSdk = 24
-        targetSdk = 35   // ← aligne avec compileSdk
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 

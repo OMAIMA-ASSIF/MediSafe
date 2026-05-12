@@ -1,25 +1,73 @@
 <resources>
     <style name="Theme.MediSafe" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/medi_blue_600</item>
+        <item name="colorPrimary">@color/medi_primary_600</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryContainer">@color/medi_blue_50</item>
-        <item name="colorSecondary">@color/medi_green_600</item>
-        <item name="colorSecondaryContainer">@color/medi_green_50</item>
+        <item name="colorPrimaryContainer">@color/medi_primary_50</item>
+        <item name="colorSecondary">@color/medi_accent_lime</item>
+        <item name="colorSecondaryContainer">@color/background_light</item>
         <item name="colorTertiary">@color/medi_teal_600</item>
+        <item name="colorTertiaryContainer">@color/medi_teal_50</item>
         <item name="android:colorBackground">@color/background_light</item>
         <item name="colorSurface">@color/white</item>
+        <item name="colorSurfaceVariant">@color/medi_gray_50</item>
         <item name="shapeAppearanceSmallComponent">@style/ShapeSmall</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeMedium</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeLarge</item>
     </style>
 
+    <!-- Modern Rounded Shapes -->
     <style name="ShapeSmall" parent="ShapeAppearance.Material3.SmallComponent">
-        <item name="cornerRadius">8dp</item>
-    </style>
-    <style name="ShapeMedium" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerRadius">12dp</item>
     </style>
-    <style name="ShapeLarge" parent="ShapeAppearance.Material3.LargeComponent">
+    <style name="ShapeMedium" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerRadius">16dp</item>
+    </style>
+    <style name="ShapeLarge" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerRadius">20dp</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="ModernCardStyle">
+        <item name="android:elevation">0dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="PrimaryButtonStyle" parent="Widget.Material3.Button">
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="HeadingStyle">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/medi_primary_900</item>
+    </style>
+
+    <style name="SubHeadingStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/medi_primary_600</item>
+    </style>
+
+    <!-- Bottom Navigation Styles -->
+    <style name="BottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:width">48dp</item>
+        <item name="android:height">32dp</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <style name="BottomNavLabelActive">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/medi_primary_900</item>
+    </style>
+
+    <style name="BottomNavLabelInactive">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/medi_gray_100</item>
     </style>
 </resources>

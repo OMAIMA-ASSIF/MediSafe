@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardMedicine"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/medicine_card_gradient"
+        android:padding="16dp">
+
+        <!-- Left Section -->
+        <LinearLayout
+            android:id="@+id/leftSection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/progressStock">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nom"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvDosage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dosage"
+                android:textSize="13sp"
+                android:textColor="@color/white"
+                android:alpha="0.85"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stock: "
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:alpha="0.8" />
+
+                <TextView
+                    android:id="@+id/tvStock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/medi_accent_bright" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Progress Circle -->
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/progressStock"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnTake"
+            app:cpb_progress="50"
+            app:cpb_progressbar_color="@color/medi_accent_bright"
+            app:cpb_background_color="@color/white"
+            app:cpb_progressbar_width="4dp"
+            app:cpb_text_size="14sp"
+            app:cpb_text_color="@color/medi_primary_900" />
+
+        <!-- Warning Icon -->
+        <ImageView
+            android:id="@+id/ivWarning"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_warning"
+            android:visibility="gone"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="@+id/progressStock"
+            app:layout_constraintStart_toStartOf="@+id/progressStock"
+            app:layout_constraintEnd_toEndOf="@+id/progressStock"
+            app:layout_constraintTop_toTopOf="@+id/progressStock"
+            app:tint="@color/medi_accent_orange" />
+
+        <!-- Action Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTake"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:text="-1"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/medi_primary_900"
+            app:cornerRadius="28dp"
+            app:backgroundTint="@color/medi_accent_lime"
+            app:elevation="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

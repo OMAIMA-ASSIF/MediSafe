@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <!-- Header with Gradient -->
+    <View
+        android:id="@+id/headerBackground"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:background="@drawable/header_gradient"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Statistiques"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Stats Card Container -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/headerBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Chart Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/chartCard"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp"
+                android:background="@color/white">
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pieChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Stats Grid -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:layout_marginBottom="16dp">
+
+                <!-- Total Medicines Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:background="@drawable/medicine_card_gradient"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💊"
+                            android:textSize="32sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalMedicines"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Médicaments"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:alpha="0.8" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Total Taken Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:background="@drawable/stats_card_gradient"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✅"
+                            android:textSize="32sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalTaken"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pris"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:alpha="0.8" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Compliance Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:background="@drawable/compliance_card_gradient"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📈"
+                            android:textSize="32sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/tvCompliance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Conformité"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:alpha="0.8" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Low Stock Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:background="@drawable/warning_card_gradient"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚠️"
+                            android:textSize="32sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/tvLowStock"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Stock faible"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:alpha="0.8" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
+            <!-- Empty State -->
+            <LinearLayout
+                android:id="@+id/emptyStatsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📊"
+                    android:textSize="48sp"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pas de données"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/medi_primary_900"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ajoute des médicaments pour voir les statistiques"
+                    android:textSize="14sp"
+                    android:textColor="@color/medi_gray_100"
+                    android:textAlignment="center"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Empty State TextView (compatibility) -->
+    <TextView
+        android:id="@+id/tvEmptyStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajoute des médicaments pour voir les statistiques"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textColor="@color/medi_gray_100"
+        android:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

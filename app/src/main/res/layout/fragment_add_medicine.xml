@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ajouter un médicament"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/medi_primary_900"
+                android:layout_marginBottom="8dp" />
+
+            <View
+                android:layout_width="60dp"
+                android:layout_height="3dp"
+                android:background="@color/medi_accent_bright" />
+
+        </LinearLayout>
+
+        <!-- Form Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            android:backgroundTint="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Medicine Name Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:hint="Nom du médicament"
+                    app:startIconDrawable="@drawable/ic_take"
+                    app:startIconTint="@color/medi_primary_600"
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxCornerRadiusTopEnd="14dp"
+                    app:boxCornerRadiusBottomStart="14dp"
+                    app:boxCornerRadiusBottomEnd="14dp"
+                    app:boxStrokeColor="@color/medi_primary_200"
+                    app:hintTextColor="@color/medi_gray_100"
+                    app:boxBackgroundColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/medi_primary_900"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Dosage Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="14dp"
+                    android:hint="Dosage (ex: 500mg)"
+                    app:startIconDrawable="@drawable/ic_warning"
+                    app:startIconTint="@color/medi_primary_600"
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxCornerRadiusTopEnd="14dp"
+                    app:boxCornerRadiusBottomStart="14dp"
+                    app:boxCornerRadiusBottomEnd="14dp"
+                    app:boxStrokeColor="@color/medi_primary_200"
+                    app:hintTextColor="@color/medi_gray_100"
+                    app:boxBackgroundColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_dosage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/medi_primary_900"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Initial Stock Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="14dp"
+                    android:hint="Stock initial"
+                    app:startIconDrawable="@drawable/ic_home"
+                    app:startIconTint="@color/medi_primary_600"
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxCornerRadiusTopEnd="14dp"
+                    app:boxCornerRadiusBottomStart="14dp"
+                    app:boxCornerRadiusBottomEnd="14dp"
+                    app:boxStrokeColor="@color/medi_primary_200"
+                    app:hintTextColor="@color/medi_gray_100"
+                    app:boxBackgroundColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_initialStock"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textColor="@color/medi_primary_900"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Unit Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="14dp"
+                    android:hint="Unité (ex: comprimés, ml)"
+                    app:startIconDrawable="@drawable/ic_stats"
+                    app:startIconTint="@color/medi_primary_600"
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxCornerRadiusTopEnd="14dp"
+                    app:boxCornerRadiusBottomStart="14dp"
+                    app:boxCornerRadiusBottomEnd="14dp"
+                    app:boxStrokeColor="@color/medi_primary_200"
+                    app:hintTextColor="@color/medi_gray_100"
+                    app:boxBackgroundColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_unit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="comprimés"
+                        android:textColor="@color/medi_primary_900"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Info Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:background="@drawable/info_card_background"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💡 Conseil"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/medi_primary_600"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Complète toutes les informations pour un suivi optimal"
+                        android:textSize="13sp"
+                        android:textColor="@color/medi_gray_100" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Save Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="Enregistrer"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:cornerRadius="14dp"
+            app:backgroundTint="@color/medi_primary_600"
+            app:elevation="0dp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

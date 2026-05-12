@@ -13,125 +13,179 @@
         android:gravity="center_horizontal"
         android:padding="24dp">
 
+        <!-- Top Accent Banner -->
+        <View
+            android:layout_width="120dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/medi_accent_bright"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Logo -->
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="190dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="24dp"
             android:src="@drawable/medicine_logo"
-            android:contentDescription="logo"/>
+            android:contentDescription="logo"
+            android:scaleType="centerInside" />
 
+        <!-- Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create your account"
-            android:textSize="24sp"
-            android:textColor="@color/medi_blue_800"
+            android:text="Créer un compte"
+            android:textSize="32sp"
+            android:textColor="@color/medi_primary_900"
             android:textStyle="bold"
-            android:layout_marginTop="16dp" />
+            android:layout_marginBottom="8dp" />
 
+        <!-- Subtitle -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rejoins MediSafe et gère ton stock"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textColor="@color/medi_gray_100"
             android:layout_marginBottom="32dp" />
 
+        <!-- Name Field -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:hint="Nom complet"
             app:startIconDrawable="@drawable/ic_person"
+            app:startIconTint="@color/medi_primary_600"
             app:boxCornerRadiusTopStart="14dp"
             app:boxCornerRadiusTopEnd="14dp"
             app:boxCornerRadiusBottomStart="14dp"
-            app:boxCornerRadiusBottomEnd="14dp">
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxStrokeColor="@color/medi_primary_200"
+            app:hintTextColor="@color/medi_gray_100"
+            app:boxBackgroundColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/medi_primary_900"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Email Field -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="14dp"
             android:hint="Email"
             app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="@color/medi_primary_600"
             app:boxCornerRadiusTopStart="14dp"
             app:boxCornerRadiusTopEnd="14dp"
             app:boxCornerRadiusBottomStart="14dp"
-            app:boxCornerRadiusBottomEnd="14dp">
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxStrokeColor="@color/medi_primary_200"
+            app:hintTextColor="@color/medi_gray_100"
+            app:boxBackgroundColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="@color/medi_primary_900"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Password Field -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="14dp"
             android:hint="Mot de passe"
             app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/medi_primary_600"
             app:endIconMode="password_toggle"
+            app:endIconTint="@color/medi_primary_600"
             app:boxCornerRadiusTopStart="14dp"
             app:boxCornerRadiusTopEnd="14dp"
             app:boxCornerRadiusBottomStart="14dp"
-            app:boxCornerRadiusBottomEnd="14dp">
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxStrokeColor="@color/medi_primary_200"
+            app:hintTextColor="@color/medi_gray_100"
+            app:boxBackgroundColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/medi_primary_900"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Terms & Conditions -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="En créant un compte, tu acceptes nos conditions"
+            android:textSize="12sp"
+            android:textColor="@color/medi_gray_100"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
+
+        <!-- Register Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
+            android:layout_height="56dp"
             android:layout_marginTop="24dp"
-            android:text="Sign up"
+            android:text="S'inscrire"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             app:cornerRadius="14dp"
-            app:backgroundTint="@color/medi_blue_800" />
+            app:backgroundTint="@color/medi_primary_600"
+            app:elevation="0dp" />
 
+        <!-- Progress Bar -->
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:indeterminate="true" />
 
+        <!-- Login Link -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have an account ?"
-                android:textColor="@color/medi_gray_100" />
+                android:text="Tu as déjà un compte ? "
+                android:textColor="@color/medi_gray_100"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign in"
-                android:textColor="@color/medi_blue_600"
-                android:textStyle="bold" />
+                android:text="Se connecter"
+                android:textColor="@color/medi_primary_600"
+                android:textStyle="bold"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
