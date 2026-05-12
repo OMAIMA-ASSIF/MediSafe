@@ -63,10 +63,10 @@ public class HomeFragment extends Fragment {
         viewModel.getAllMedicines().observe(getViewLifecycleOwner(), medicines -> {
             if (medicines == null || medicines.isEmpty()) {
                 binding.recyclerView.setVisibility(View.GONE);
-                binding.tvEmpty.setVisibility(View.VISIBLE);
+                binding.emptyState.setVisibility(View.VISIBLE);
             } else {
                 binding.recyclerView.setVisibility(View.VISIBLE);
-                binding.tvEmpty.setVisibility(View.GONE);
+                binding.emptyState.setVisibility(View.GONE);
                 adapter.submitList(medicines);
             }
         });

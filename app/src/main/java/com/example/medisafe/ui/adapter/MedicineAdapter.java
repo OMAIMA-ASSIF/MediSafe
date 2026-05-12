@@ -80,7 +80,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
             if (fraction <= 0.25f) progressColor = R.color.medi_danger;
             else if (fraction <= 0.5f) progressColor = R.color.medi_warning;
             else progressColor = R.color.medi_green_400;
-            b.progressStock.setIndicatorColor(
+            b.progressStock.setProgressBarColor(
                     ContextCompat.getColor(b.getRoot().getContext(), progressColor));
 
             boolean isLow = m.currentStock <= m.lowStockThreshold;
