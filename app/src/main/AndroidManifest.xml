@@ -5,6 +5,7 @@
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Pour Android 13+ -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" /> <!-- Pour AlarmManager précis -->
 
     <application
         android:allowBackup="true"
@@ -39,6 +40,11 @@
         <!-- Activité principale après connexion -->
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+
+        <!-- Récepteur pour les alarmes de rappel -->
+        <receiver
+            android:name=".utils.ReminderReceiver"
             android:exported="false" />
 
     </application>

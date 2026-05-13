@@ -45,11 +45,15 @@ public class MedicineRepository {
         return localDao.getLowStockCount(userId);
     }
 
-    public void addMedicine(Medicine medicine) {
+
+    public void addMedicine(Medicine medicine, Runnable onComplete) {
         MedicineEntity entity = toEntity(medicine);
         executor.execute(() -> {
             localDao.insertMedicine(entity);
             syncToFirestore(entity);
+            if (onComplete != null) {
+                onComplete.run();
+            }
         });
     }
 
@@ -102,6 +106,8 @@ public class MedicineRepository {
         e.reminderEnabled = m.isReminderEnabled();
         e.reminderHour = m.getReminderHour();
         e.colorIndex = m.getColorIndex();
+        e.reminderEnabled = m.isReminderEnabled();
+        e.reminderHour = m.getReminderHour();
         return e;
     }
 

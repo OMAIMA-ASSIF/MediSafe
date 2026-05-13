@@ -1,6 +1,7 @@
 package com.example.medisafe.ui.add;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,11 @@ public class AddMedicineFragment extends BottomSheetDialogFragment {
         super.onViewCreated(view, savedInstanceState);
         viewModel = new ViewModelProvider(requireActivity()).get(AddMedicineViewModel.class);
 
+        // Gérer l'affichage du champ heure selon l'état du switch
+        binding.switchReminder.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            binding.tilReminderTime.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+        });
+
         binding.btnSave.setOnClickListener(v -> {
             String name = binding.etName.getText().toString().trim();
             String dosage = binding.etDosage.getText().toString().trim();
@@ -39,7 +45,37 @@ public class AddMedicineFragment extends BottomSheetDialogFragment {
                 return;
             }
             int initialStock = Integer.parseInt(stockStr);
-            viewModel.addMedicine(name, dosage, initialStock, unit);
+
+            boolean reminderEnabled = binding.switchReminder.isChecked();
+            int reminderHour = 0;
+            int reminderMinute = 0;
+            if (reminderEnabled) {
+                String timeStr = binding.etReminderTime.getText().toString().trim();
+                if (TextUtils.isEmpty(timeStr)) {
+                    Snackbar.make(binding.getRoot(), "Indique une heure de rappel", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+                // Format "HH:MM" ou "H:MM"
+                String[] parts = timeStr.split(":");
+                if (parts.length != 2) {
+                    Snackbar.make(binding.getRoot(), "Format d'heure invalide (ex: 08:30)", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+                try {
+                    reminderHour = Integer.parseInt(parts[0]);
+                    reminderMinute = Integer.parseInt(parts[1]);
+                } catch (NumberFormatException e) {
+                    Snackbar.make(binding.getRoot(), "Heure invalide", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+                if (reminderHour < 0 || reminderHour > 23 || reminderMinute < 0 || reminderMinute > 59) {
+                    Snackbar.make(binding.getRoot(), "Heure hors limites", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            // Appeler le ViewModel avec les nouveaux paramètres
+            viewModel.addMedicine(name, dosage, initialStock, unit, reminderEnabled, reminderHour, reminderMinute);
             dismiss();
         });
     }

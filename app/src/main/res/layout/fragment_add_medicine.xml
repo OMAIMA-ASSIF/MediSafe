@@ -151,6 +151,34 @@
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchReminder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Activer les rappels" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilReminderTime"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Heure du rappel (ex: 08:00)"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etReminderTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="time" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <!-- Info Section -->
                 <LinearLayout
                     android:layout_width="match_parent"

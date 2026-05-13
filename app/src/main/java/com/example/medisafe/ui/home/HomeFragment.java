@@ -14,6 +14,7 @@ import com.example.medisafe.data.local.entity.MedicineEntity;
 import com.example.medisafe.databinding.FragmentHomeBinding;
 import com.example.medisafe.ui.add.AddMedicineFragment;
 import com.example.medisafe.ui.adapter.MedicineAdapter;
+import com.example.medisafe.utils.ReminderScheduler;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
@@ -67,6 +68,7 @@ public class HomeFragment extends Fragment {
                         .setTitle("Supprimer")
                         .setMessage("Voulez-vous vraiment supprimer " + medicine.name + " ?")
                         .setPositiveButton("Supprimer", (dialog, which) -> {
+                            ReminderScheduler.cancelReminder(requireContext(), medicine.id);
                             viewModel.deleteMedicine(medicine);
                             Snackbar.make(binding.getRoot(), "🗑️ " + medicine.name + " supprimé", Snackbar.LENGTH_SHORT).show();
                         })
