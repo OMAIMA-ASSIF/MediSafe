@@ -3,7 +3,6 @@ package com.example.medisafe.ui.onboarding;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -69,7 +68,7 @@ public class OnboardingActivity extends AppCompatActivity {
         private final int[] icons = {
                 R.drawable.ic_pill,
                 R.drawable.ic_notifications,
-                R.drawable.ic_stats,
+                R.drawable.ic_chart,
                 R.drawable.ic_sync
         };
 

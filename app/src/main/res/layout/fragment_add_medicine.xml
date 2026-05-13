@@ -132,7 +132,7 @@
                     android:layout_height="56dp"
                     android:layout_marginTop="14dp"
                     android:hint="Unité (ex: comprimés, ml)"
-                    app:startIconDrawable="@drawable/ic_stats"
+                    app:startIconDrawable="@drawable/ic_chart"
                     app:startIconTint="@color/medi_primary_600"
                     app:boxCornerRadiusTopStart="14dp"
                     app:boxCornerRadiusTopEnd="14dp"

@@ -11,7 +11,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/ic_pill"
-        android:tint="@color/medi_blue_600" />
+        android:tint="@color/medi_green_400" />
 
     <TextView
         android:id="@+id/tv_title"
