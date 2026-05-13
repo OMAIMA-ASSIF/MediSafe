@@ -20,6 +20,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
 
     public interface OnMedicineListener {
         void onTake(MedicineEntity medicine);
+        void onAdd(MedicineEntity medicine);
         void onClick(MedicineEntity medicine);
         void onLongClick(MedicineEntity medicine);
     }
@@ -96,11 +97,15 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
             }
 
             b.btnTake.setOnClickListener(v -> listener.onTake(m));
+            b.btnAdd.setOnClickListener(v -> {
+                if (listener != null) listener.onAdd(m);
+            });
             b.cardMedicine.setOnClickListener(v -> listener.onClick(m));
             b.cardMedicine.setOnLongClickListener(v -> {
                 listener.onLongClick(m);
                 return true;
             });
+
         }
     }
 }

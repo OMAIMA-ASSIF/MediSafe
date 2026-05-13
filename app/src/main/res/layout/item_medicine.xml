@@ -16,7 +16,6 @@
         android:background="@drawable/medicine_card_gradient"
         android:padding="16dp">
 
-        <!-- Left Section -->
         <LinearLayout
             android:id="@+id/leftSection"
             android:layout_width="0dp"
@@ -69,12 +68,9 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:textColor="@color/medi_accent_bright" />
-
             </LinearLayout>
-
         </LinearLayout>
 
-        <!-- Progress Circle -->
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
             android:id="@+id/progressStock"
             android:layout_width="60dp"
@@ -82,13 +78,12 @@
             android:layout_marginEnd="12dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnTake"
+            app:layout_constraintEnd_toStartOf="@+id/layoutActionButtons"
             app:cpb_progress="50"
             app:cpb_progressbar_color="@color/medi_accent_bright"
             app:cpb_progressbar_width="4dp"
             app:cpb_background_progressbar_color="@color/medi_primary_900" />
 
-        <!-- Warning Icon -->
         <ImageView
             android:id="@+id/ivWarning"
             android:layout_width="28dp"
@@ -102,21 +97,51 @@
             app:layout_constraintTop_toTopOf="@+id/progressStock"
             app:tint="@color/medi_accent_orange" />
 
-        <!-- Action Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTake"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:text="-1"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/medi_primary_900"
-            app:cornerRadius="28dp"
-            app:backgroundTint="@color/medi_accent_lime"
-            app:elevation="0dp"
+        <LinearLayout
+            android:id="@+id/layoutActionButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:background="@drawable/bg_quantity_control"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="2dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTake"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="52dp"
+                android:layout_height="match_parent"
+                android:text="-1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/medi_primary_900"
+                app:cornerRadius="25dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="24dp"
+                android:alpha="0.1"
+                android:background="@color/medi_primary_900" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdd"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="52dp"
+                android:layout_height="match_parent"
+                android:text="+"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/medi_primary_900"
+                app:cornerRadius="25dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

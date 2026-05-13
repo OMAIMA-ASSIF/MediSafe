@@ -39,5 +39,8 @@ public interface MedicineDao {
     @Query("SELECT SUM(takenCount) FROM medicines WHERE userId = :userId")
     LiveData<Integer> getTotalTakenCount(String userId);
 
+    @Query("UPDATE medicines SET currentStock = currentStock + :amount, lastTakenAt = :timestamp WHERE id = :id")
+    void increaseStock(String id, int amount, long timestamp);
+
 
 }

@@ -109,4 +109,15 @@ public class MedicineRepository {
         return localDao.getTotalTakenCount(userId);
     }
 
+    public void increaseStock(String medicineId, int amount) {
+        executor.execute(() -> {
+            localDao.increaseStock(medicineId, amount, System.currentTimeMillis());
+            // Synchronisation Firestore
+            firestore.collection("users").document(userId)
+                    .collection("medicines").document(medicineId)
+                    .update("currentStock", FieldValue.increment(amount),
+                            "lastUpdated", System.currentTimeMillis());
+        });
+    }
+
 }

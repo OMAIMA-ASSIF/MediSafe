@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import com.example.medisafe.worker.LowStockWorker;
+
 
 public class HomeFragment extends Fragment {
 
@@ -49,14 +51,27 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
+            public void onAdd(MedicineEntity medicine) {
+                viewModel.increaseStock(medicine.id, 1);
+                Snackbar.make(binding.getRoot(), "➕ " + medicine.name + " +1", Snackbar.LENGTH_SHORT).show();
+            }
+
+            @Override
             public void onClick(MedicineEntity medicine) {
                 // Optionnel : ouvrir détail ou édition
             }
 
             @Override
             public void onLongClick(MedicineEntity medicine) {
-                viewModel.deleteMedicine(medicine);
-                Snackbar.make(binding.getRoot(), "🗑️ " + medicine.name + " supprimé", Snackbar.LENGTH_SHORT).show();
+                new AlertDialog.Builder(requireContext())
+                        .setTitle("Supprimer")
+                        .setMessage("Voulez-vous vraiment supprimer " + medicine.name + " ?")
+                        .setPositiveButton("Supprimer", (dialog, which) -> {
+                            viewModel.deleteMedicine(medicine);
+                            Snackbar.make(binding.getRoot(), "🗑️ " + medicine.name + " supprimé", Snackbar.LENGTH_SHORT).show();
+                        })
+                        .setNegativeButton("Annuler", null)
+                        .show();
             }
         });
         binding.recyclerView.setAdapter(adapter);

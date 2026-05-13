@@ -30,4 +30,8 @@ public class HomeViewModel extends AndroidViewModel {
     public void deleteMedicine(MedicineEntity medicine) {
         repository.deleteMedicine(medicine);
     }
+
+    public void increaseStock(String medicineId, int amount) {
+        repository.increaseStock(medicineId, amount);
+    }
 }
