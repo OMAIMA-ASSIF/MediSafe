@@ -23,6 +23,7 @@ public class MedicineEntity {
     public int colorIndex;
     public long createdAt;
     public Long lastTakenAt;
+    public int takenCount;
 
     public MedicineEntity() {
         this.id = UUID.randomUUID().toString();
@@ -30,5 +31,10 @@ public class MedicineEntity {
         this.lowStockThreshold = 3;
         this.reminderHour = 8;
         this.createdAt = System.currentTimeMillis();
+        takenCount = 0;
+    }
+
+    public int getTakenCount() {
+        return this.takenCount;
     }
 }

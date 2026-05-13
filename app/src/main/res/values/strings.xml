@@ -8,4 +8,5 @@
     <string name="onboarding_desc_3">View your consumption</string>
     <string name="onboarding_title_4">Cloud Synchronization</string>
     <string name="onboarding_desc_4">Access your data on all your devices</string>
+    <string name="ajoute_des_m_dicaments_pour_voir_les_statistiques">Ajoute des médicaments pour voir les statistiques</string>
 </resources>

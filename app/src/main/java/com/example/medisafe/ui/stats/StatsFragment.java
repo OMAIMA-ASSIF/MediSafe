@@ -33,13 +33,34 @@ public class StatsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         viewModel = new ViewModelProvider(requireActivity()).get(StatsViewModel.class);
 
+        // Observer le nombre total de médicaments
+        viewModel.getTotalMedicines().observe(getViewLifecycleOwner(), count -> {
+            binding.tvTotalMedicines.setText(String.valueOf(count));
+        });
+
+        // Observer le nombre de médicaments en stock faible
+        viewModel.getLowStockCount().observe(getViewLifecycleOwner(), count -> {
+            binding.tvLowStock.setText(String.valueOf(count));
+        });
+
+        // Exemple pour le total pris (à remplacer par de vraies données)
+        viewModel.getTotalTaken().observe(getViewLifecycleOwner(), taken -> {
+            binding.tvTotalTaken.setText(String.valueOf(taken));
+        });
+
+        // Taux de conformité (exemple)
+        viewModel.getComplianceRate().observe(getViewLifecycleOwner(), rate -> {
+            binding.tvCompliance.setText(String.format("%.0f%%", rate));
+        });
+
+        // Pour le graphique (PieChart) – conserver le code existant
         viewModel.getAllMedicines().observe(getViewLifecycleOwner(), medicines -> {
             if (medicines == null || medicines.isEmpty()) {
                 binding.pieChart.setVisibility(View.GONE);
-                binding.tvEmptyStats.setVisibility(View.VISIBLE);
+                binding.emptyStatsContainer.setVisibility(View.VISIBLE);
             } else {
                 binding.pieChart.setVisibility(View.VISIBLE);
-                binding.tvEmptyStats.setVisibility(View.GONE);
+                binding.emptyStatsContainer.setVisibility(View.GONE);
                 setupPieChart(medicines);
             }
         });

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_light">
@@ -97,12 +98,12 @@
                         android:background="@drawable/medicine_card_gradient"
                         android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="💊"
-                            android:textSize="32sp"
-                            android:layout_marginBottom="8dp" />
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_drug"
+                            android:layout_marginBottom="8dp"
+                            />
 
                         <TextView
                             android:id="@+id/tvTotalMedicines"
@@ -147,12 +148,12 @@
                         android:background="@drawable/stats_card_gradient"
                         android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="✅"
-                            android:textSize="32sp"
-                            android:layout_marginBottom="8dp" />
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_check"
+                            android:layout_marginBottom="8dp"
+                            app:tint="@color/medi_green_400" />
 
                         <TextView
                             android:id="@+id/tvTotalTaken"
@@ -197,12 +198,12 @@
                         android:background="@drawable/compliance_card_gradient"
                         android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="📈"
-                            android:textSize="32sp"
-                            android:layout_marginBottom="8dp" />
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_chart"
+                            android:layout_marginBottom="8dp"
+                             />
 
                         <TextView
                             android:id="@+id/tvCompliance"
@@ -247,12 +248,12 @@
                         android:background="@drawable/warning_card_gradient"
                         android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="⚠️"
-                            android:textSize="32sp"
-                            android:layout_marginBottom="8dp" />
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_warning"
+                            android:layout_marginBottom="8dp"
+                            />
 
                         <TextView
                             android:id="@+id/tvLowStock"
@@ -324,10 +325,11 @@
         android:id="@+id/tvEmptyStats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ajoute des médicaments pour voir les statistiques"
+        android:text="@string/ajoute_des_m_dicaments_pour_voir_les_statistiques"
         android:textAlignment="center"
         android:textSize="16sp"
         android:textColor="@color/medi_gray_100"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

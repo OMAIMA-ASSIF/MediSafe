@@ -82,7 +82,7 @@ public class MedicineRepository {
         data.put("unit", entity.unit);
         data.put("lowStockThreshold", entity.lowStockThreshold);
         data.put("createdAt", entity.createdAt);
-        // Ajoutez d'autres champs si nécessaire
+        data.put("takenCount", entity.takenCount);
 
         firestore.collection("users").document(userId)
                 .collection("medicines").document(entity.id)
@@ -104,4 +104,9 @@ public class MedicineRepository {
         e.colorIndex = m.getColorIndex();
         return e;
     }
+
+    public LiveData<Integer> getTotalTaken() {
+        return localDao.getTotalTakenCount(userId);
+    }
+
 }

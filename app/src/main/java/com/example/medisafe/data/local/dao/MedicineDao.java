@@ -30,9 +30,14 @@ public interface MedicineDao {
     @Delete
     void deleteMedicine(MedicineEntity medicine);
 
-    @Query("UPDATE medicines SET currentStock = currentStock - 1, lastTakenAt = :timestamp WHERE id = :id AND currentStock > 0")
+    @Query("UPDATE medicines SET currentStock = currentStock - 1, lastTakenAt = :timestamp, takenCount = takenCount + 1 WHERE id = :id AND currentStock > 0")
     void takeMedicine(String id, long timestamp);
 
     @Query("SELECT COUNT(*) FROM medicines WHERE userId = :userId AND currentStock <= lowStockThreshold")
     LiveData<Integer> getLowStockCount(String userId);
+
+    @Query("SELECT SUM(takenCount) FROM medicines WHERE userId = :userId")
+    LiveData<Integer> getTotalTakenCount(String userId);
+
+
 }
