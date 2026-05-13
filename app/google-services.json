@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "416140562562",
+    "project_id": "medisafe-b81ad",
+    "storage_bucket": "medisafe-b81ad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416140562562:android:e802d470bebe1e8e34e49b",
+        "android_client_info": {
+          "package_name": "com.example.medisafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416140562562-4b7b1u1nlfsvdgtsjq8u40t4ilhr20dn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaSfJbR99hDPBjaysnG_bds0_9ClXwkk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416140562562-4b7b1u1nlfsvdgtsjq8u40t4ilhr20dn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

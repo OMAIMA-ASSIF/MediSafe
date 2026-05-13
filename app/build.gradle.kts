@@ -93,6 +93,8 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
+    implementation(platform("com.google.firebase:firebase-bom:34.13.0"))
+
 
 
 }

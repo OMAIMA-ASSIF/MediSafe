@@ -1,10 +1,11 @@
 <resources>
     <style name="Theme.MediSafe" parent="Theme.Material3.Dark.NoActionBar">
-        <item name="colorPrimary">@color/medi_blue_400</item>
+        <item name="colorPrimary">@color/medi_primary_400</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryContainer">@color/medi_blue_800</item>
-        <item name="colorSecondary">@color/medi_green_400</item>
-        <item name="android:colorBackground">#0D1117</item>
-        <item name="colorSurface">#161B22</item>
+        <item name="colorPrimaryContainer">@color/medi_primary_800</item>
+        <item name="colorSecondary">@color/medi_accent_lime</item>
+        <item name="colorSecondaryContainer">@color/medi_teal_600</item>
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="colorSurface">@color/background_dark</item>
     </style>
 </resources>

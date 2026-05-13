@@ -85,10 +85,8 @@
             app:layout_constraintEnd_toStartOf="@+id/btnTake"
             app:cpb_progress="50"
             app:cpb_progressbar_color="@color/medi_accent_bright"
-            app:cpb_background_color="@color/white"
             app:cpb_progressbar_width="4dp"
-            app:cpb_text_size="14sp"
-            app:cpb_text_color="@color/medi_primary_900" />
+            app:cpb_background_progressbar_color="@color/medi_primary_900" />
 
         <!-- Warning Icon -->
         <ImageView

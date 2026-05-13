@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.app.NotificationCompat;
+import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
@@ -20,6 +21,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import androidx.core.content.ContextCompat;
 import androidx.annotation.NonNull;
+import androidx.work.ExistingPeriodicWorkPolicy;
+
+
 public class LowStockWorker extends Worker {
 
     public LowStockWorker(@NonNull Context context, @NonNull WorkerParameters params) {

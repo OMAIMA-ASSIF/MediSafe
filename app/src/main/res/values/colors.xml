@@ -37,6 +37,11 @@
     <color name="gradient_start">#5530A2</color>
     <color name="gradient_end">#7B5DB8</color>
 
-
+    <color name="medi_blue_900">#042C53</color>
+    <color name="medi_blue_800">#0C447C</color>
+    <color name="medi_blue_600">#185FA5</color>
+    <color name="medi_blue_400">#378ADD</color>
+    <color name="medi_blue_200">#85B7EB</color>
+    <color name="medi_blue_50">#E6F1FB</color>
 
 </resources>
