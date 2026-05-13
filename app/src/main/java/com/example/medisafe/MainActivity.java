@@ -1,6 +1,9 @@
 package com.example.medisafe;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -19,6 +22,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // Vérification de l’état des notifications
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        boolean areNotificationsEnabled = notificationManager.areNotificationsEnabled();
+
+        if (areNotificationsEnabled) {
+            Log.d("Notification", "Notifications activées !");
+        } else {
+            Log.d("Notification", "Notifications désactivées !");
+        }
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nav_host_fragment);

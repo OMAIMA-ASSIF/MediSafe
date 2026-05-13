@@ -14,6 +14,9 @@ import com.example.medisafe.databinding.FragmentHomeBinding;
 import com.example.medisafe.ui.add.AddMedicineFragment;
 import com.example.medisafe.ui.adapter.MedicineAdapter;
 import com.google.android.material.snackbar.Snackbar;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+import com.example.medisafe.worker.LowStockWorker;
 
 public class HomeFragment extends Fragment {
 
@@ -76,6 +79,18 @@ public class HomeFragment extends Fragment {
         binding.fabAdd.setOnClickListener(v -> {
             new AddMedicineFragment().show(getParentFragmentManager(), "add_medicine");
         });
+
+        // Long-clic pour forcer la vérification des notifications
+        binding.fabAdd.setOnLongClickListener(v -> {
+            triggerLowStockCheck();
+            return true; // indique que l'événement est consommé
+        });
+    }
+
+    private void triggerLowStockCheck() {
+        OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(LowStockWorker.class).build();
+        WorkManager.getInstance(requireContext()).enqueue(workRequest);
+        Snackbar.make(binding.getRoot(), "🔍 Vérification des stocks lancée", Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
