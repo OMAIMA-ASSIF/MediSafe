@@ -8,10 +8,9 @@
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/ic_pill"
-        android:tint="@color/medi_green_400" />
+        android:layout_width="317dp"
+        android:layout_height="372dp"
+        android:src="@drawable/ic_hi" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -21,7 +20,7 @@
         android:text="Titre"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="@color/medi_blue_800" />
+        android:textColor="@color/medi_primary_900" />
 
     <TextView
         android:id="@+id/tv_description"

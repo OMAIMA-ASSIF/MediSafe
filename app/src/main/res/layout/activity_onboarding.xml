@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tabGravity="center"
-        app:tabIndicatorColor="@color/medi_blue_600" />
+        app:tabIndicatorColor="@color/medi_primary_900" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next"
@@ -34,7 +34,7 @@
         android:layout_marginBottom="32dp"
         android:text="Suivant"
         app:cornerRadius="14dp"
-        app:backgroundTint="@color/medi_blue_600"
+        app:backgroundTint="@color/gradient_start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

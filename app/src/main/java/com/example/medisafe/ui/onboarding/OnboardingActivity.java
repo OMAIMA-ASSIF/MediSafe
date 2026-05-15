@@ -66,10 +66,10 @@ public class OnboardingActivity extends AppCompatActivity {
                 R.string.onboarding_desc_4
         };
         private final int[] icons = {
-                R.drawable.ic_pill,
-                R.drawable.ic_notifications,
-                R.drawable.ic_chart,
-                R.drawable.ic_sync
+                R.drawable.ic_hi,
+                R.drawable.ic_hi2,
+                R.drawable.ic_hi3,
+                R.drawable.ic_hi4
         };
 
         @NonNull
