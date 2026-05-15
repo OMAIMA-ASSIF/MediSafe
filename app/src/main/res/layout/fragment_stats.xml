@@ -91,6 +91,7 @@
                     app:strokeWidth="0dp">
 
                     <LinearLayout
+                        android:id="@+id/medicineCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -141,6 +142,7 @@
                     app:strokeWidth="0dp">
 
                     <LinearLayout
+                        android:id="@+id/takenCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -191,6 +193,7 @@
                     app:strokeWidth="0dp">
 
                     <LinearLayout
+                        android:id="@+id/complianceCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -241,6 +244,7 @@
                     app:strokeWidth="0dp">
 
                     <LinearLayout
+                        android:id="@+id/lowStockCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"

@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.medisafe.R;
@@ -21,6 +24,7 @@ public class StatsFragment extends Fragment {
 
     private FragmentStatsBinding binding;
     private StatsViewModel viewModel;
+    private List<MedicineEntity> currentMedicines = new ArrayList<>(); // pour stocker la liste actuelle
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,6 +59,7 @@ public class StatsFragment extends Fragment {
 
         // Pour le graphique (PieChart) – conserver le code existant
         viewModel.getAllMedicines().observe(getViewLifecycleOwner(), medicines -> {
+            currentMedicines = medicines;
             if (medicines == null || medicines.isEmpty()) {
                 binding.pieChart.setVisibility(View.GONE);
                 binding.emptyStatsContainer.setVisibility(View.VISIBLE);
@@ -64,6 +69,82 @@ public class StatsFragment extends Fragment {
                 setupPieChart(medicines);
             }
         });
+
+        // --- Ajout des listeners sur les cartes ---
+
+        // Carte "Médicaments"
+        binding.medicineCard.setOnClickListener(v -> {
+            if (currentMedicines == null || currentMedicines.isEmpty()) {
+                Toast.makeText(getContext(), "Aucun médicament", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (MedicineEntity med : currentMedicines) {
+                sb.append("• ").append(med.name)
+                        .append(" (").append(med.currentStock).append("/").append(med.initialStock)
+                        .append(" ").append(med.unit).append(")\n");
+            }
+            new AlertDialog.Builder(requireContext())
+                    .setTitle("📋 Médicaments (" + currentMedicines.size() + ")")
+                    .setMessage(sb.toString())
+                    .setPositiveButton("OK", null)
+                    .show();
+        });
+
+        // Carte "Stock faible"
+        binding.lowStockCard.setOnClickListener(v -> {
+            if (currentMedicines == null || currentMedicines.isEmpty()) {
+                Toast.makeText(getContext(), "Aucun médicament", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            List<MedicineEntity> lowStockList = new ArrayList<>();
+            for (MedicineEntity med : currentMedicines) {
+                if (med.currentStock <= med.lowStockThreshold) {
+                    lowStockList.add(med);
+                }
+            }
+            if (lowStockList.isEmpty()) {
+                Toast.makeText(getContext(), "✅ Aucun médicament en stock faible", Toast.LENGTH_SHORT).show();
+            } else {
+                StringBuilder sb = new StringBuilder();
+                for (MedicineEntity med : lowStockList) {
+                    sb.append("• ").append(med.name)
+                            .append(" : ").append(med.currentStock).append(" ").append(med.unit).append("\n");
+                }
+                new AlertDialog.Builder(requireContext())
+                        .setTitle("⚠️ Stock faible (" + lowStockList.size() + ")")
+                        .setMessage(sb.toString())
+                        .setPositiveButton("OK", null)
+                        .show();
+            }
+        });
+
+        // Carte "Pris" (historique des prises)
+        binding.takenCard.setOnClickListener(v -> {
+            if (currentMedicines == null || currentMedicines.isEmpty()) {
+                Toast.makeText(getContext(), "Aucune donnée", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            int totalPris = 0;
+            StringBuilder sb = new StringBuilder();
+            for (MedicineEntity med : currentMedicines) {
+                int taken = med.getTakenCount();
+                totalPris += taken;
+                if (taken > 0) {
+                    sb.append("• ").append(med.name).append(" : ").append(taken).append(" prise(s)\n");
+                }
+            }
+            if (totalPris == 0) {
+                Toast.makeText(getContext(), "Aucune prise enregistrée", Toast.LENGTH_SHORT).show();
+            } else {
+                new AlertDialog.Builder(requireContext())
+                        .setTitle("💊 Historique des prises (total : " + totalPris + ")")
+                        .setMessage(sb.toString())
+                        .setPositiveButton("OK", null)
+                        .show();
+            }
+        });
+
     }
 
     private void setupPieChart(List<MedicineEntity> medicines) {
