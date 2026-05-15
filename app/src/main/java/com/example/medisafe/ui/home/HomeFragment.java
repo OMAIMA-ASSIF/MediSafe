@@ -19,13 +19,18 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import com.example.medisafe.worker.LowStockWorker;
-
+import androidx.recyclerview.widget.ConcatAdapter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private HomeViewModel viewModel;
     private MedicineAdapter adapter;
+    private MedicineAdapter reminderAdapter;
+    private MedicineAdapter normalAdapter;
+    private ConcatAdapter concatAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,7 +49,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void setupRecyclerView() {
-        adapter = new MedicineAdapter(new MedicineAdapter.OnMedicineListener() {
+        // Le même listener pour les deux adaptateurs
+        MedicineAdapter.OnMedicineListener listener = new MedicineAdapter.OnMedicineListener() {
             @Override
             public void onTake(MedicineEntity medicine) {
                 viewModel.takeMedicine(medicine.id);
@@ -75,20 +81,35 @@ public class HomeFragment extends Fragment {
                         .setNegativeButton("Annuler", null)
                         .show();
             }
-        });
-        binding.recyclerView.setAdapter(adapter);
-    }
+        };
 
+        reminderAdapter = new MedicineAdapter(listener);
+        normalAdapter = new MedicineAdapter(listener);
+        concatAdapter = new ConcatAdapter(reminderAdapter, normalAdapter);
+        binding.recyclerView.setAdapter(concatAdapter);
+    }
     private void observeMedicines() {
         viewModel.getAllMedicines().observe(getViewLifecycleOwner(), medicines -> {
             if (medicines == null || medicines.isEmpty()) {
                 binding.recyclerView.setVisibility(View.GONE);
                 binding.emptyState.setVisibility(View.VISIBLE);
-            } else {
-                binding.recyclerView.setVisibility(View.VISIBLE);
-                binding.emptyState.setVisibility(View.GONE);
-                adapter.submitList(medicines);
+                return;
             }
+            binding.recyclerView.setVisibility(View.VISIBLE);
+            binding.emptyState.setVisibility(View.GONE);
+
+            // Séparer les médicaments
+            List<MedicineEntity> reminderList = new ArrayList<>();
+            List<MedicineEntity> normalList = new ArrayList<>();
+            for (MedicineEntity med : medicines) {
+                if (med.reminderEnabled) {
+                    reminderList.add(med);
+                } else {
+                    normalList.add(med);
+                }
+            }
+            reminderAdapter.submitList(reminderList);
+            normalAdapter.submitList(normalList);
         });
     }
 

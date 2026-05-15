@@ -11,6 +11,7 @@ import com.example.medisafe.R;
 import com.example.medisafe.data.local.entity.MedicineEntity;
 import com.example.medisafe.databinding.ItemMedicineBinding;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder> {
@@ -60,7 +61,21 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
         medicines = new ArrayList<>(newList);
         result.dispatchUpdatesTo(this);
     }
-
+    private String getTimeUntilReminder(int reminderHour, int reminderMinute) {
+        Calendar now = Calendar.getInstance();
+        Calendar next = Calendar.getInstance();
+        next.set(Calendar.HOUR_OF_DAY, reminderHour);
+        next.set(Calendar.MINUTE, reminderMinute);
+        next.set(Calendar.SECOND, 0);
+        if (next.getTimeInMillis() <= now.getTimeInMillis()) {
+            next.add(Calendar.DAY_OF_YEAR, 1);
+        }
+        long diff = next.getTimeInMillis() - now.getTimeInMillis();
+        long hours = diff / (60 * 60 * 1000);
+        long minutes = (diff % (60 * 60 * 1000)) / (60 * 1000);
+        if (hours == 0) return "Rappel dans " + minutes + " min";
+        else return "Rappel dans " + hours + "h" + minutes + "min";
+    }
     class MedicineViewHolder extends RecyclerView.ViewHolder {
         private final ItemMedicineBinding b;
 
@@ -95,6 +110,16 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
             } else {
                 b.ivWarning.setVisibility(View.GONE);
             }
+
+            // Affichage du rappel
+            if (m.reminderEnabled) {
+                String timeLeft = getTimeUntilReminder(m.reminderHour, m.reminderMinute);
+                b.tvReminder.setVisibility(View.VISIBLE);
+                b.tvReminder.setText(timeLeft);
+            } else {
+                b.tvReminder.setVisibility(View.GONE);
+            }
+
 
             b.btnTake.setOnClickListener(v -> listener.onTake(m));
             b.btnAdd.setOnClickListener(v -> {

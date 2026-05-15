@@ -25,18 +25,13 @@ public class AddMedicineViewModel extends AndroidViewModel {
 
     public void addMedicine(String name, String dosage, int initialStock, String unit,
                             boolean reminderEnabled, int reminderHour, int reminderMinute) {
-        // Créer l'objet Medicine (l'ID est généré dans le constructeur)
         Medicine medicine = new Medicine(name, dosage, initialStock, unit);
         medicine.setReminderEnabled(reminderEnabled);
-        int reminderTimeInMinutes = reminderHour * 60 + reminderMinute;
-        medicine.setReminderHour(reminderTimeInMinutes);
+        medicine.setReminderHour(reminderHour);
+        medicine.setReminderMinute(reminderMinute);  // stocker les minutes séparément
 
-        // Appel au repository avec un callback pour savoir quand l'insertion est terminée
         repository.addMedicine(medicine, () -> {
-            // Ce code s'exécute après que l'insertion en base et la sync Firestore sont faites
             medicineAdded.postValue(true);
-
-            // Planifier le rappel si activé
             if (reminderEnabled) {
                 ReminderScheduler.scheduleReminder(getApplication(),
                         medicine.getId(),

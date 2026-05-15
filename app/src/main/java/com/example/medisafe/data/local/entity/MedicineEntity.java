@@ -24,6 +24,7 @@ public class MedicineEntity {
     public long createdAt;
     public Long lastTakenAt;
     public int takenCount;
+    public int reminderMinute;
 
     public MedicineEntity() {
         this.id = UUID.randomUUID().toString();
@@ -37,4 +38,6 @@ public class MedicineEntity {
     public int getTakenCount() {
         return this.takenCount;
     }
+    public int getReminderMinute() { return reminderMinute; }
+    public void setReminderMinute(int minute) { this.reminderMinute = minute; }
 }

@@ -69,6 +69,14 @@
                     android:textStyle="bold"
                     android:textColor="@color/medi_accent_bright" />
             </LinearLayout>
+            <TextView
+                android:id="@+id/tvReminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/medi_teal_600"
+                android:visibility="gone"
+                android:layout_marginTop="4dp" />
         </LinearLayout>
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar

@@ -29,7 +29,6 @@ public class AddMedicineFragment extends BottomSheetDialogFragment {
         super.onViewCreated(view, savedInstanceState);
         viewModel = new ViewModelProvider(requireActivity()).get(AddMedicineViewModel.class);
 
-        // Gérer l'affichage du champ heure selon l'état du switch
         binding.switchReminder.setOnCheckedChangeListener((buttonView, isChecked) -> {
             binding.tilReminderTime.setVisibility(isChecked ? View.VISIBLE : View.GONE);
         });
@@ -55,7 +54,6 @@ public class AddMedicineFragment extends BottomSheetDialogFragment {
                     Snackbar.make(binding.getRoot(), "Indique une heure de rappel", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                // Format "HH:MM" ou "H:MM"
                 String[] parts = timeStr.split(":");
                 if (parts.length != 2) {
                     Snackbar.make(binding.getRoot(), "Format d'heure invalide (ex: 08:30)", Snackbar.LENGTH_SHORT).show();
@@ -74,7 +72,6 @@ public class AddMedicineFragment extends BottomSheetDialogFragment {
                 }
             }
 
-            // Appeler le ViewModel avec les nouveaux paramètres
             viewModel.addMedicine(name, dosage, initialStock, unit, reminderEnabled, reminderHour, reminderMinute);
             dismiss();
         });

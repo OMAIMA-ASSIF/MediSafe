@@ -108,6 +108,8 @@ public class MedicineRepository {
         e.colorIndex = m.getColorIndex();
         e.reminderEnabled = m.isReminderEnabled();
         e.reminderHour = m.getReminderHour();
+        e.reminderHour = m.getReminderHour();
+        e.reminderMinute = m.getReminderMinute();
         return e;
     }
 

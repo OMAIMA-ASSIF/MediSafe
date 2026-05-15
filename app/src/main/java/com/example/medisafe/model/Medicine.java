@@ -16,6 +16,7 @@ public class Medicine {
     private int colorIndex;
     private long createdAt;
     private Long lastTakenAt;
+    private int reminderMinute;
 
     public Medicine() {}
 
@@ -30,6 +31,7 @@ public class Medicine {
         this.reminderEnabled = false;
         this.reminderHour = 8;
         this.createdAt = System.currentTimeMillis();
+        this.reminderMinute = 0;
     }
 
     // Getters et Setters (générés automatiquement dans Android Studio)
@@ -68,4 +70,6 @@ public class Medicine {
         if (initialStock == 0) return 0f;
         return (float) currentStock / initialStock;
     }
+    public int getReminderMinute() { return reminderMinute; }
+    public void setReminderMinute(int minute) { this.reminderMinute = minute; }
 }
